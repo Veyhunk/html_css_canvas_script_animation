@@ -1,0 +1,59 @@
+<!DOCTYPE html >
+<html >
+<head>
+<style>
+  canvas{background:#ddd;}
+</style>
+<script>
+   window.onload=function(){
+	   	var canvas=document.getElementById("canvas");
+		var context=canvas.getContext("2d");
+		var arr=[];
+	    canvas.onmousedown=function(e){
+					arr=[];				
+			canvas.onmouseup=function(e){
+				context.clearRect(0,0,500,500);//清空画布
+					arr=[];		
+			}
+			canvas.onmousemove=function(e){
+					var startx=e.layerX;
+					var starty=e.layerY;//坐标
+					var rec={transFlag:0,xnum:startx,ynum:starty,scale:0,color:"rgb("+parseInt(255*Math.random())+","+parseInt(255*Math.random())+","+parseInt(255*Math.random())+")"};arr.push(rec);//添加动画
+					context.clearRect(0,0,500,500);//清空画布
+					for(var i=0;i<arr.length;i++)
+					{			
+						if (arr[i].transFlag==1) {
+							arr[i].scale-=0.02;
+						}else{
+							arr[i].scale+=0.02;
+						}
+						if (arr[i].scale>1) {
+							arr[i].transFlag=1;
+						}
+						if (arr[i].scale<0) {
+							arr[i].transFlag=0;
+						}
+						context.save();//保存
+						context.translate(arr[i].xnum,arr[i].ynum);//移动画布的圆心
+						context.scale(arr[i].scale,arr[i].scale);//调节画布缩放
+						context.fillStyle=arr[i].color;//更改圆圈的填充颜色
+			  			context.beginPath();
+						context.arc(0,0,50,50,2*Math.PI,true);//绘制动画圆圈		
+						context.fill();//填充
+						context.restore();//返回
+					}
+					
+			}
+		}
+
+   	}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<canvas id="canvas" width=500 height=500>
+</canvas>
+</body>
+</html>

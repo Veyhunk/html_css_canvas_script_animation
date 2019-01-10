@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>点击屏幕增加圆圈_155242013069林伟煌软工二班.html</title>
+<style>
+canvas{background:#ccc;}
+</style>
+<script>
+    window.onload=function(){
+		var canvas=document.getElementById("canvas");
+		var context=canvas.getContext("2d");
+		var ClickNum=0;
+		var arr=[];
+		context.font="60px impact";//设置字体大小 设置字体
+		t=setInterval(tr,60);//设置进程,每秒60次
+		function  tr(){
+			context.clearRect(0,0,500,500);//清空画布
+			for(var i=0;i<arr.length;i++)
+			{			
+				//更改动画值
+				if (arr[i].transFlag==1) {
+					arr[i].scale-=0.02;
+				}else{
+					arr[i].scale+=0.02;
+				}
+				if (arr[i].scale>1) {
+					arr[i].transFlag=1;
+				}
+				if (arr[i].scale<0) {
+					arr[i].transFlag=0;
+				}
+				context.save();//保存当前环境的状态
+				context.translate(arr[i].xnum,arr[i].ynum);//移动到圆心
+				context.scale(arr[i].scale,arr[i].scale);//调节缩放
+				context.fillStyle=arr[i].color;//更改填充颜色
+	  			context.beginPath();
+				context.arc(0,0,50,50,2*Math.PI,true);		//绘制圆圈		
+				context.fill();//填充
+				context.restore();//返回之前保存过的路径状态和属性
+			}
+			context.fillText('Click:'+ClickNum,200,60,400);
+
+		}
+		canvas.onclick=function(e){
+			var startx=e.layerX;
+			var starty=e.layerY;//获取鼠标单击坐标
+			var rec={transFlag:0,xnum:startx,ynum:starty,scale:0,color:"rgb("+parseInt(255*Math.random())+","+parseInt(255*Math.random())+","+parseInt(255*Math.random())+")"};arr.push(rec);//添加元素
+			ClickNum++;//计数点击
+			context.fillStyle="rgb("+parseInt(255*Math.random())+","+parseInt(255*Math.random())+","+parseInt(255*Math.random())+")";//更改文字颜色
+		}
+	}
+</script>
+</head>
+
+<body>
+<canvas id=canvas width="500" height="500"></canvas>
+155242013069林伟煌软工二班
+</body>
+</html>

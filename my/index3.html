@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="1000" height="1000"></canvas>
+<script>
+    /**
+     * Created by lyxxx on 4/18/2016.
+     */
+    var canvas=document.querySelector('canvas'),
+            context=canvas.getContext('2d');
+    // 这个数组用于保存画布上出现的所有球
+    var balls = [];
+    var x=10;
+    canvas.addEventListener('mousemove',function (e) {
+        if (x++%10==0){
+            addBall(e.clientX,e.clientY);
+        }
+    },false);
+    drawFrame();
+    // 用于表示球的所有细节的Ball函数
+    // x、y分别是气泡初始化的位置
+    //radius是气泡的半径-随机
+    //strokeColor 绘制颜色 -随机
+    //填充颜色-随机
+    //flag半径变大还是变小
+    //flagx x增大还是减小
+    //flagy y增加还是减少
+    function Ball(x, y) {
+        this.x = x;
+        this.y = y;
+        this.radius = Math.round(Math.random()*10)*10;
+        this.strokeColor = 'rgba('+Math.round(Math.random()*10)*25+','+Math.round(Math.random()*10)*25+','+Math.round(Math.random()*10)*25+',0)';
+        this.fillColor = 'rgba('+Math.round(Math.random()*10)*25+','+Math.round(Math.random()*10)*25+','+Math.round(Math.random()*10)*25+','+Math.round(Math.random()*10)/10+')';
+        this.flag=1;
+        this.flagx=1;
+        this.flagy=1;
+    }
+
+    function addBall(x,y) {
+        // 小球半径
+        var radius = Math.round(Math.random()*10)*10;
+//        if (x<200||x>1000){
+//            x=Math.round(Math.random()*10)*100;
+//        }
+//        if (y<200||x>600){
+//            y=Math.round(Math.random()*10)*60;
+//        }
+        // 创建新的ball对象
+        var ball = new Ball(x,y);
+        // 将其保存在balls数组中
+        balls.push(ball);
+    }
+    function clearBalls() {
+        // 删除所有球对象
+        balls = [];
+    }
+
+
+    function drawFrame() {
+        // 清除画布
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.beginPath();
+        // 循环所有的球,并重新定义他们的位置和大小
+
+        for(var i=0; i<balls.length; i++) {
+            if (balls[i].flagx==1){
+                balls[i].x++;
+                if (balls[i].x>=800){
+                    balls[i].flagx=0;
+                }
+            }else if(balls[i].flagx==0){
+                balls[i].x--;
+                if (balls[i].x<=0){
+                    balls[i].flagx=1;
+                }
+            }
+
+            if (balls[i].flagy==1){
+                balls[i].y++;
+                if (balls[i].y>=600){
+                    balls[i].flagy=0;
+                }
+            }else if(balls[i].flagy==0){
+                balls[i].y--;
+                if (balls[i].y<=0){
+                    balls[i].flagy=1;
+                }
+            }
+
+
+            if (balls[i].flag==1){
+                balls[i].radius++;
+
+                balls[i].y++;
+                if (balls[i].radius>=100){
+                    balls[i].flag=0;
+                }
+            }else if (balls[i].flag==0){
+                balls[i].radius--;
+                balls[i].x--;
+                balls[i].y--;
+                if (balls[i].radius<=0){
+                    balls[i].flag=1;
+                }
+            }
+            var ball = balls[i];
+            context.beginPath();
+            context.fillStyle = balls[i].fillColor;
+            context.strokeStyle=balls[i].strokeColor;
+            // 绘制球
+            context.arc(balls[i].x, balls[i].y, balls[i].radius, 0, Math.PI*2);
+            context.lineWidth = 0;
+            context.fill();
+            context.stroke();
+        }
+        // 20毫秒后绘制下一帧
+        setTimeout(drawFrame, 20);
+    }
+
+</script>
+</body>
+</html>

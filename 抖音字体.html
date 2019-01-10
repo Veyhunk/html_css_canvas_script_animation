@@ -1,0 +1,144 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="manifest" href="site.webmanifest">
+  <!-- Place favicon.ico in the root directory -->
+  <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+  html {
+  background-color: rgb(29, 29, 29);
+  padding-top: 20%;
+  padding-left: 30%;
+}
+
+.douyin-style {
+  position: relative;
+}
+
+.douyin-style-font {
+  font-weight: 700;
+  width:450px;
+  position: relative;
+  animation: debounce 1s steps(3) infinite;
+  /** font style **/
+  font-size: 50px;
+  font-style: italic;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-family: 'Anton', sans-serif;
+}
+
+.douyin-style-font .douyin-style-title {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: inherit;
+}
+
+.douyin-style-font .douyin-style-title:before {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  color: #00f5e7;
+  opacity: .8;
+  z-index: 2;
+  content: attr(data-title);
+}
+
+.douyin-style-font .douyin-style-title span{
+  position: relative;
+  color: #FFF;
+  z-index: 3;
+  opacity: .9;
+}
+
+.douyin-style-font .douyin-style-title:after {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  opacity: .8;
+  color: #ff0068;
+  z-index: 1;
+  content: attr(data-title);
+}
+
+.douyin-style-font.shake {
+  position: absolute;
+  z-index: 9;
+  left: var(--shake-offset);
+  height: var(--shake-height);
+  overflow: hidden;
+  background:rgb(29, 29, 29);
+  animation: shake-body 1s steps(4) infinite;
+  animation-delay: var(--shake-delay);
+}
+
+.douyin-style-font.shake .douyin-style-title {
+  animation: shake-content 1s steps(4) infinite;
+  animation-delay: var(--shake-delay);
+}
+
+@keyframes debounce {
+  0% {
+    margin-left: 2px;
+  }
+  0% {
+    margin-left: -4px;
+  }
+}
+
+@keyframes shake-body {
+  0%   {
+    top: 0;
+  }
+  100% {
+    top: 60px;
+  }
+}
+
+@keyframes shake-content {
+  0%   {
+    margin-top: 0;
+  }
+  100% {
+    margin-top: -60px;
+  }
+}
+</style>
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <!-- Add your site or application content here -->
+  <div class="douyin-style">
+    <div class="douyin-style-font">
+      <div class="douyin-style-title" data-title="HELLO SEVENSCHAN">
+        <span>HELLO SEVENSCHAN</span>
+      </div>
+    </div>
+    <div class="douyin-style-font shake" style="--shake-offset: -2px; --shake-height: 20px;--shake-delay:0s;">
+      <div class="douyin-style-title" data-title="HELLO SEVENSCHAN">
+        <span>HELLO SEVENSCHAN</span>
+      </div>
+    </div>
+    <div class="douyin-style-font shake" style="--shake-offset: -5px; --shake-height: 10px;--shake-delay:0.5s;">
+      <div class="douyin-style-title" data-title="HELLO SEVENSCHAN">
+        <span>HELLO SEVENSCHAN</span>
+      </div>
+    </div>
+  </div>
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+</body>
+
+</html>

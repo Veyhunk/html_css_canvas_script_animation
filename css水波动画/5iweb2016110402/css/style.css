@@ -1,0 +1,285 @@
+body {
+    background-color: #333;
+}
+
+#cccc {
+    width: 325px;
+    height: 325px;
+    margin: 64px auto 24px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(to bottom, rgba(30, 87, 153, 1) 0%, rgba(125, 185, 232, 0) 100%);
+    opacity: 1;
+}
+
+#cccc2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(to bottom, rgba(30, 87, 153, 1) 0%, rgba(125, 185, 232, 0) 100%);
+    opacity: 1;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(to bottom, rgba(30, 87, 153, 1) 0%, rgba(125, 185, 232, 0) 100%);
+    opacity: 1;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+#wave-one {
+    background-color: #fff;
+    width: 400px;
+    height: 400px;
+    border-radius: 170px;
+    position: absolute;
+    left: 50%;
+    margin-left: -200px;
+    top: -195px;
+    opacity: .45;
+    z-index: 10;
+    -moz-animation: spin 5s infinite linear;
+    -o-animation: spin 5s infinite linear;
+    -webkit-animation: spin 5s infinite linear;
+    animation: spin 5s infinite linear;
+}
+
+#wave-two {
+    background-color: #f0fff0;
+    width: 400px;
+    height: 400px;
+    border-radius: 150px;
+    position: absolute;
+    left: 50%;
+    margin-left: -180px;
+    top: -210px;
+    opacity: .4;
+    z-index: 10;
+    -moz-animation: spin 7s infinite linear;
+    -o-animation: spin 7s infinite linear;
+    -webkit-animation: spin 7s infinite linear;
+    animation: spin 7s infinite linear;
+}
+
+#wave-three {
+    background-color: #fff;
+    width: 390px;
+    height: 390px;
+    border-radius: 170px;
+    position: absolute;
+    left: 50%;
+    margin-left: -200px;
+    top: -200px;
+    opacity: 1;
+    z-index: 10;
+    -moz-animation: spin 11s infinite linear;
+    -o-animation: spin 11s infinite linear;
+    -webkit-animation: spin 11s infinite linear;
+    animation: spin 11s infinite linear;
+}
+
+@-moz-keyframes spin {
+    0% {
+        -moz-transform: rotate(0deg)
+    }
+    100% {
+        -moz-transform: rotate(359deg)
+    }
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg)
+    }
+    100% {
+        -webkit-transform: rotate(359deg)
+    }
+}
+
+@-o-keyframes spin {
+    0% {
+        -o-transform: rotate(0deg)
+    }
+    100% {
+        -o-transform: rotate(359deg)
+    }
+}
+
+@-ms-keyframes spin {
+    0% {
+        -ms-transform: rotate(0deg)
+    }
+    100% {
+        -ms-transform: rotate(359deg)
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(359deg)
+    }
+}
+
+
+/*@-moz-keyframes spin2 {
+    0% {
+        -moz-transform: rotate(359deg)
+    }
+    100% {
+        -moz-transform: rotate(0deg)
+    }
+}
+
+@-webkit-keyframes spin2 {
+    0% {
+        -webkit-transform: rotate(359deg)
+    }
+    100% {
+        -webkit-transform: rotate(0deg)
+    }
+}
+
+@-o-keyframes spin2 {
+    0% {
+        -o-transform: rotate(359deg)
+    }
+    100% {
+        -o-transform: rotate(0deg)
+    }
+}
+
+@-ms-keyframes spin2 {
+    0% {
+        -ms-transform: rotate(359deg)
+    }
+    100% {
+        -ms-transform: rotate(0deg)
+    }
+}
+
+@keyframes spin2 {
+    0% {
+        transform: rotate(359deg)
+    }
+    100% {
+        transform: rotate(0deg)
+    }
+}*/
+
+.circle {
+    background: #4692ef
+}
+
+p {
+    color: #4692ef
+}
+
+.circle {
+    position: relative;
+    border-radius: 50%;
+    width: 4.2rem;
+    height: 4.2rem;
+    border: .16rem solid #fff;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 .16rem #fff;
+    border-radius: 50%;
+    /*overflow: hidden;*/
+    position: relative;
+    background: linear-gradient(to bottom, rgba(30, 87, 153, 1) 0%, rgba(125, 185, 232, 0) 100%);
+    /*opacity: 1;*/
+}
+
+.circle .today {
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    font-size: .9rem;
+    top: .4rem;
+    color: #7f7e8d
+}
+
+.circle .today:after {
+    content: "\5F53\524D\62E5\6324\5EA6";
+    font-size: .28rem;
+    color: #999;
+    position: absolute;
+    top: 1.2rem;
+    left: 0;
+    width: 100%;
+    font-weight: 400
+}
+
+.circle .todayState {
+    position: absolute;
+    width: 100%;
+    color: #fff;
+    bottom: .4rem;
+    font-size: .6rem;
+    font-weight: lighter
+}
+
+.circle .wave {
+    opacity: .3;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    background: #fff;
+    width: 8.2rem;
+    height: 8.2rem;
+    margin-left: -4.1rem;
+    margin-top: -4.32rem;
+    -webkit-transform-origin: 50% 48%;
+    transform-origin: 50% 48%;
+    border-radius: 46%;
+    -webkit-animation: drift 3s infinite linear;
+    animation: drift 3s infinite linear
+}
+
+.circle .wave.two {
+    background: #f0fff0;
+    border-radius: 40%;
+    opacity: .4;
+    -webkit-animation: drift 6s infinite linear;
+    animation: drift 6s infinite linear
+}
+
+.circle .wave.three {
+    margin-top: -4.52rem;
+    border-radius: 44%;
+    opacity: 1;
+    -webkit-animation: drift 8s infinite linear;
+    animation: drift 8s infinite linear
+}
+
+@-webkit-keyframes drift {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+    0% {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn)
+    }
+}
+
+@keyframes drift {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+    0% {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn)
+    }
+}
