@@ -2,7 +2,7 @@
 <html >
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>ÎŞ±êÌâÎÄµµ</title>
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
 <style>
 #box{
 	width:600px;
@@ -147,30 +147,30 @@
 </style>
 <script>
 window.onload=function(){
-	//ÊÓÆµ¶ÔÏó
+	//è§†é¢‘å¯¹è±¡
 	var video=document.getElementById("video");
-	//box¶ÔÏó
+	//boxå¯¹è±¡
 	var box=document.getElementById("box");
-	//²¥·Å¶ÔÏó
+	//æ’­æ”¾å¯¹è±¡
 	var play=document.getElementById("play");
-	//½ø¶ÈÌõ
+	//è¿›åº¦æ¡
 	var progress=document.getElementById("progress");
 	var bar=document.getElementById("bar");
 	var control=document.getElementById("control");
-	//À®°È
+	//å–‡å­
 	var sound=document.getElementById("sound");
-	//ÉùÒô¿ØÖÆ
+	//å£°éŸ³æ§åˆ¶
 	var volume=document.getElementById("volume");
 	var volumebar=document.getElementById("volumebar");
 	var volumecontrol=document.getElementById("volumecontrol");
-	//½ø¶ÈÌõ
+	//è¿›åº¦æ¡
 	video.addEventListener("timeupdate",function(){
 		var scale=video.currentTime/video.duration;
 		bar.style.width=progress.offsetWidth*scale+"px";
 		control.style.left=progress.offsetWidth*scale-20+"px";
 		}
 	);
-	//½ø¶ÈÌõ¿ØÖÆ
+	//è¿›åº¦æ¡æ§åˆ¶
 	control.onmousedown=function(e){
 	   video.pause();
 		document.onmousemove=function(e){
@@ -187,7 +187,7 @@ window.onload=function(){
 			document.onmousemove=null;
 		}	
 	}
-	//²¥·Å¿ØÖÆ
+	//æ’­æ”¾æ§åˆ¶
 	play.onclick=function(){
 		if(video.paused){
 			play.className="pause";
@@ -199,7 +199,7 @@ window.onload=function(){
 		}
 	} 
 		
-	//¿ØÖÆÀ®°È
+	//æ§åˆ¶å–‡å­
 	sound.onclick=function(){
 		if (video.muted){
 			video.muted=false;
@@ -210,7 +210,7 @@ window.onload=function(){
 			sound.className="soundoff";
 		}	  
 	}
-		//ÉùÒô½ø¶ÈÌõ
+		//å£°éŸ³è¿›åº¦æ¡
 	video.addEventListener("volumechange",function(){
 			var scale=video.volume;
 			volumebar.style.width=volume.offsetWidth*scale+"px";
@@ -218,7 +218,7 @@ window.onload=function(){
 		}	
 	);
 		
-	//ÉùÒô½ø¶ÈÌõ¿ØÖÆ
+	//å£°éŸ³è¿›åº¦æ¡æ§åˆ¶
 	volumecontrol.onmousedown=function(e){
 		document.onmousemove=function(e){
 			var controlx=e.clientX-box.offsetLeft-volume.offsetLeft;
@@ -234,7 +234,7 @@ window.onload=function(){
 		}	
 	}	
 
-    //È«ÆÁ
+    //å…¨å±
 	var full=document.getElementById("full");
 		full.addEventListener("click",function(){
 			video.webkitRequestFullScreen();
@@ -251,24 +251,24 @@ window.onload=function(){
   <!--play and pause-->
   <div id="play" class="pause">
   </div>
-  <!--½ø¶ÈÌõ-->
+  <!--è¿›åº¦æ¡-->
   <div id="progress">
      <span id="bar">
      </span>
      <div id="control">
      </div>
   </div>
-  <!--À®°È-->
+  <!--å–‡å­-->
   <div id="sound" class="soundon">
   </div>
-  <!--ÉùÒô¿ØÖÆ-->
+  <!--å£°éŸ³æ§åˆ¶-->
    <div id="volume">
      <div id="volumebar">
      </div>
      <div id="volumecontrol">
      </div>
   </div>
-  <!--È«ÆÁ¿ØÖÆ-->
+  <!--å…¨å±æ§åˆ¶-->
   <div id="full">
   </div>
 </div>
