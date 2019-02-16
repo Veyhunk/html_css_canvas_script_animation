@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src = "./libs/CanvasSketch.js"></script>
+    <script type = "text/javascript">
+		var timer;
+		function init() {            
+			var div = document.getElementById("renderer");
+			div.innerHTML = "";
+			if(timer) {clearInterval(timer);};
+			var layer = new Layer(div);
+			var vectors = [];
+			
+			var differ = 1;
+
+			for(var i = 0; i<1000; i++) {
+				var point = new Point((Math.random()*400-200), (Math.random()*300-150));
+				
+				vectors.push(new Vector(point));
+			}
+			layer.addVectors(vectors);
+			
+			
+			timer = setInterval(function(){
+				layer.zoom -= differ; 
+				layer.renderer.redraw();
+				if(layer.zoom < 50){
+					differ = -1;
+				}
+				if(layer.zoom > 200) {
+					differ = 1;
+				}
+			},30);
+		}        
+    </script>
+</head>
+<body>
+    <div style="width:400px; height:300px; border:1px solid black" id="renderer">&nbsp;</div>
+    <p onclick="init()">运行示例</p>
+</body>
+</html>
